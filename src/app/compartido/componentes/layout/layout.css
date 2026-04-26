@@ -1,21 +1,139 @@
+/* Layout */
 .layout-contenedor {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
-
 .contenido-principal {
-  flex-grow: 1; /* Ocupa el espacio restante del navegador */
-  padding: 2rem;
-  max-width: 1200px; /* Centra el contenido en pantallas gigantes */
-  margin: 0 auto;
-  width: 100%;
+  flex: 1;
 }
 
-.pie-pagina {
-  background-color: white;
+/* ==================================
+   FOOTER INSTITUCIONAL
+   ================================== */
+.institutional-footer {
+  background-color: var(--white);
+  border-top: 4px solid var(--gold);
+  padding: 50px 0 20px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 40px;
+}
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+.footer-section h4 {
+  color: var(--navy-blue);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--gold);
+  border-radius: 2px;
+}
+.footer-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-section ul li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-section ul li i {
+  color: var(--gold);
+  width: 20px;
   text-align: center;
-  padding: 1rem;
-  color: var(--color-texto-mutado);
-  border-top: 1px solid #e2e8f0;
+  font-size: 1.1rem;
+}
+.footer-section ul li a { transition: var(--transition); }
+.footer-section ul li a:hover {
+  color: var(--navy-blue);
+  padding-left: 5px;
+}
+
+/* Footer logos */
+.footer-logos-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 25px;
+  overflow-x: auto;
+}
+.footer-logos-wrapper::-webkit-scrollbar { height: 6px; }
+.footer-logos-wrapper::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+.entity-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 140px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 15px;
+  border-radius: 8px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.entity-icon {
+  font-size: 2rem;
+  color: #cbd5e1;
+  transition: var(--transition);
+}
+.entity-logo:hover {
+  background-color: var(--bg-light);
+  color: var(--navy-blue);
+  transform: translateY(-5px);
+}
+.entity-logo:hover .entity-icon { color: var(--gold); }
+
+/* gov.co logo mask */
+.gov-co-logo-mask {
+  width: 65px;
+  height: 32px;
+  background-color: #cbd5e1;
+  -webkit-mask-image: url('/gov-co-logo.jpg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url('/gov-co-logo.jpg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: var(--transition);
+}
+.entity-logo:hover .gov-co-logo-mask { background-color: var(--gold); }
+
+.footer-copyright {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }

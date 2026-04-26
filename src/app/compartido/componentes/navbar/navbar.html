@@ -1,12 +1,103 @@
-<nav class="navegacion">
-  <div class="nav-contenedor">
-    <a routerLink="/inicio" class="logo">
-      ✨ <strong>Mi App Angular</strong>
+<header class="navbar">
+  <div class="container navbar-container">
+    <a routerLink="/inicio" class="logo" (click)="closeMenu()">
+      <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+      <h1>IEM Santa Teresita</h1>
     </a>
-    <div class="nav-rutas">
-      <a routerLink="/inicio" routerLinkActive="activo">Inicio</a>
-      <!-- Agrega más enlaces aquí -->
-      <a routerLink="/otra-ruta" routerLinkActive="activo">Otras Rutas</a>
-    </div>
+    
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+      <i [class]="menuOpen() ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </button>
+    
+    <nav class="main-nav" [class.open]="menuOpen()">
+      <ul class="nav-links">
+
+        <!-- ═══════════ INSTITUCIONAL ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Institucional <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/institucional/resena-historica" (click)="closeMenu()">Reseña Histórica</a></li>
+            <li><a routerLink="/institucional/mision-vision" (click)="closeMenu()">Misión/Visión</a></li>
+            <li><a routerLink="/institucional/simbolos" (click)="closeMenu()">Símbolos</a></li>
+            <li><a routerLink="/institucional/patrona" (click)="closeMenu()">Santa Teresita (Patrona)</a></li>
+            <li><a routerLink="/institucional/uniforme" (click)="closeMenu()">Uniforme</a></li>
+            <li><a routerLink="/institucional/pacto-convivencia" (click)="closeMenu()">Pacto de Convivencia</a></li>
+            <li><a routerLink="/institucional/estructura-organica" (click)="closeMenu()">Estructura Orgánica</a></li>
+            <li class="nested-dropdown">
+              <a href="javascript:void(0)">Sedes <i class="fas fa-chevron-right"></i></a>
+              <ul class="nested-dropdown-menu">
+                <li><a routerLink="/institucional/sedes/sede-1" (click)="closeMenu()">Sede 1</a></li>
+                <li><a routerLink="/institucional/sedes/sede-2" (click)="closeMenu()">Sede 2</a></li>
+                <li><a routerLink="/institucional/sedes/sede-3" (click)="closeMenu()">Sede 3</a></li>
+                <li><a routerLink="/institucional/sedes/sede-4" (click)="closeMenu()">Sede 4</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- ═══════════ ACADÉMICO ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Académico <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li class="nested-dropdown">
+              <a href="javascript:void(0)">Horarios <i class="fas fa-chevron-right"></i></a>
+              <ul class="nested-dropdown-menu">
+                <li><a routerLink="/academico/horarios/cursos" (click)="closeMenu()">Cursos</a></li>
+                <li><a routerLink="/academico/horarios/docentes" (click)="closeMenu()">Docentes</a></li>
+                <li><a routerLink="/academico/horarios/jornada" (click)="closeMenu()">Jornada</a></li>
+              </ul>
+            </li>
+            <li><a routerLink="/academico/proyectos" (click)="closeMenu()">Proyectos</a></li>
+            <li><a routerLink="/academico/oferta-academica" (click)="closeMenu()">Oferta Académica</a></li>
+          </ul>
+        </li>
+
+        <!-- ═══════════ RECURSOS EDUCATIVOS ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Recursos Educativos <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/recursos/software-educativo" (click)="closeMenu()">Software Educativo</a></li>
+            <li><a routerLink="/recursos/portales-educativos" (click)="closeMenu()">Portales Educativos</a></li>
+          </ul>
+        </li>
+
+        <!-- ═══════════ TRANSPARENCIA ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Transparencia <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/transparencia/contratacion" (click)="closeMenu()">Contratación</a></li>
+            <li><a routerLink="/transparencia/rendicion-cuentas" (click)="closeMenu()">Rendición de Cuentas</a></li>
+            <li><a routerLink="/transparencia/plan-anual" (click)="closeMenu()">Plan Anual</a></li>
+            <li><a href="https://www.secop.gov.co/" target="_blank">Enlace SECOP <i class="fas fa-external-link-alt"></i></a></li>
+          </ul>
+        </li>
+
+        <!-- ═══════════ ATENCIÓN Y SERVICIOS ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Atención y Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/servicios/contactanos" (click)="closeMenu()">Contáctanos</a></li>
+            <li><a routerLink="/servicios/orientacion-escolar" (click)="closeMenu()">Orientación Escolar</a></li>
+            <li><a routerLink="/servicios/restaurante-escolar" (click)="closeMenu()">Restaurante Escolar</a></li>
+            <li><a routerLink="/servicios/aulas-tecnologia" (click)="closeMenu()">Aulas de Tecnología</a></li>
+            <li><a routerLink="/servicios/laboratorios" (click)="closeMenu()">Laboratorios</a></li>
+            <li><a routerLink="/servicios/biblioteca" (click)="closeMenu()">Biblioteca</a></li>
+            <li><a routerLink="/servicios/transporte-escolar" (click)="closeMenu()">Transporte Escolar</a></li>
+            <li><a routerLink="/servicios/tienda-escolar" (click)="closeMenu()">Tienda Escolar</a></li>
+          </ul>
+        </li>
+
+        <!-- ═══════════ PARTICIPA ═══════════ -->
+        <li class="dropdown">
+          <a href="javascript:void(0)">Participa <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/participa/pqrs" (click)="closeMenu()">PQRS</a></li>
+            <li><a routerLink="/participa/encuestas" (click)="closeMenu()">Encuestas</a></li>
+            <li><a routerLink="/participa/redes-sociales" (click)="closeMenu()">Redes Sociales</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>

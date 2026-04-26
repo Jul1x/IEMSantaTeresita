@@ -1,0 +1,53 @@
+<!-- Header de la sección -->
+<section class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+      <i class="fas fa-chevron-right separator"></i>
+      <span>{{ seccion }}</span>
+      <i class="fas fa-chevron-right separator"></i>
+      <span class="current">{{ titulo }}</span>
+    </div>
+    <h2>{{ titulo }}</h2>
+    <p>{{ descripcion }}</p>
+  </div>
+</section>
+
+<!-- Contenido Placeholder -->
+<section class="container">
+  <div class="construction-card">
+    <div class="construction-icon-wrapper">
+      <div class="construction-icon-bg">
+        <i [class]="icono"></i>
+      </div>
+      <div class="pulse-ring"></div>
+    </div>
+    
+    <h3>🚧 Aquí comienza a añadir lo correspondiente</h3>
+    <p class="construction-subtitle">
+      Esta es la página de <strong>{{ titulo }}</strong> dentro de la sección <strong>{{ seccion }}</strong>.
+      El contenido de esta página será desarrollado próximamente.
+    </p>
+    
+    <div class="info-chips">
+      <div class="chip">
+        <i class="fas fa-layer-group"></i>
+        <span>Sección: {{ seccion }}</span>
+      </div>
+      <div class="chip">
+        <i class="fas fa-file-alt"></i>
+        <span>Página: {{ titulo }}</span>
+      </div>
+      <div class="chip status">
+        <i class="fas fa-clock"></i>
+        <span>Estado: Pendiente</span>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a routerLink="/inicio" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Volver al Inicio
+      </a>
+    </div>
+  </div>
+</section>

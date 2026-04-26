@@ -1,43 +1,259 @@
-.navegacion {
-  background-color: var(--color-superficie);
-  box-shadow: var(--sombra-suave);
+/* ==================================
+   NAVBAR - IEM Santa Teresita
+   ================================== */
+.navbar {
+  background-color: rgba(0, 40, 85, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--white);
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.15);
 }
 
-.nav-contenedor {
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 85px;
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-primario);
-}
-
-.nav-rutas {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 15px;
+  color: var(--white);
+}
+.logo-icon {
+  background: linear-gradient(135deg, var(--gold) 0%, #ffde6a 100%);
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+  color: var(--navy-blue);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+.logo h1 {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
 
-.nav-rutas a {
-  color: var(--color-texto);
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--white);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-links > li > a {
+  padding: 10px 15px;
   font-weight: 500;
-  padding-bottom: 0.25rem;
-  border-bottom: 2px solid transparent;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  border-radius: 4px;
+  color: var(--white);
+}
+.nav-links > li > a:hover {
+  color: var(--gold);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--gold);
+  transition: var(--transition);
+  border-radius: 2px 2px 0 0;
+}
+.nav-links > li:hover > a::after { width: 80%; }
+
+/* Dropdowns */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  min-width: 260px;
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 8px 8px;
+  border-top: 3px solid var(--gold);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+  padding: 10px 0;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-menu > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+}
+.dropdown-menu > li > a:hover {
+  background-color: var(--bg-light);
+  color: var(--navy-blue);
+  border-left-color: var(--gold);
+  padding-left: 25px;
 }
 
-.nav-rutas a:hover {
-  color: var(--color-primario);
+/* Nested Dropdowns */
+.nested-dropdown { position: relative; }
+.nested-dropdown-menu {
+  position: absolute;
+  top: -13px;
+  left: 100%;
+  background-color: var(--white);
+  min-width: 200px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: var(--transition);
+  padding: 10px 0;
+}
+.nested-dropdown:hover .nested-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.nested-dropdown-menu > li > a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+.nested-dropdown-menu > li > a:hover {
+  background-color: var(--bg-light);
+  color: var(--navy-blue);
+  padding-left: 25px;
 }
 
-.nav-rutas a.activo {
-  color: var(--color-primario);
-  border-bottom: 2px solid var(--color-primario);
+/* Last dropdown opens to the left */
+.nav-links > li:last-child .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+.nav-links > li:last-child .nested-dropdown-menu {
+  left: auto;
+  right: 100%;
+  transform: translateX(-10px);
+  border-left: none;
+  border-right: 3px solid var(--gold);
+}
+.nav-links > li:last-child .nested-dropdown:hover .nested-dropdown-menu {
+  transform: translateX(0);
+}
+
+/* ==================================
+   RESPONSIVE
+   ================================== */
+@media (max-width: 1100px) {
+  .nav-links > li > a {
+    font-size: 0.85rem;
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 950px) {
+  .hamburger { display: block; }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-blue);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    max-height: calc(100vh - 85px);
+    overflow-y: auto;
+  }
+  .main-nav.open { display: block; }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    align-items: stretch;
+    gap: 0;
+  }
+  .nav-links > li > a {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0;
+  }
+  .nav-links > li > a::after { display: none; }
+
+  .dropdown-menu, .nested-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background-color: rgba(0,0,0,0.15);
+    display: none;
+    border: none;
+    border-radius: 0;
+  }
+  .dropdown:hover .dropdown-menu,
+  .nested-dropdown:hover .nested-dropdown-menu { display: block; }
+
+  .dropdown-menu > li > a {
+    color: var(--white);
+    padding: 12px 30px 12px 50px;
+  }
+  .dropdown-menu > li > a:hover {
+    background-color: transparent;
+    color: var(--gold);
+  }
+  .nested-dropdown-menu > li > a {
+    color: rgba(255,255,255,0.7);
+    padding: 10px 30px 10px 70px;
+  }
+  .nested-dropdown-menu > li > a:hover {
+    background-color: transparent;
+    color: var(--gold);
+  }
+}
+
+@media (max-width: 576px) {
+  .logo h1 { font-size: 1.1rem; }
 }

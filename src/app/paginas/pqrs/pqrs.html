@@ -1,0 +1,54 @@
+<section class="page-header">
+  <div class="container">
+    <h2>Portal de PQRS</h2>
+    <p>Peticiones, Quejas, Reclamos y Sugerencias. Tu opinión es muy importante para seguir mejorando nuestra institución.</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="pqrs-wrapper">
+    <div class="pqrs-image">
+      <div class="pqrs-image-content">
+        <h3>Estamos para escucharte</h3>
+        <p>Tu opinión nos ayuda a construir una mejor institución cada día.</p>
+      </div>
+    </div>
+    <div class="pqrs-form-box">
+      <form (submit)="onSubmit($event)">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="nombres" placeholder=" " required>
+            <label for="nombres" class="floating-label">Nombres Completos</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="apellidos" placeholder=" " required>
+            <label for="apellidos" class="floating-label">Apellidos</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email" class="floating-label">Correo Electrónico</label>
+          </div>
+          <div class="form-group">
+            <select id="tipo" required>
+              <option value="" disabled selected></option>
+              <option value="peticion">Petición</option>
+              <option value="queja">Queja</option>
+              <option value="reclamo">Reclamo</option>
+              <option value="sugerencia">Sugerencia</option>
+            </select>
+            <label for="tipo" class="floating-label">Tipo de Solicitud</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea id="mensaje" placeholder=" " required></textarea>
+          <label for="mensaje" class="floating-label">Detalla tu solicitud aquí...</label>
+        </div>
+        <div style="text-align: center;">
+          <button type="submit" class="btn-cta">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
