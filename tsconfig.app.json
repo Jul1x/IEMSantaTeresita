@@ -1,0 +1,15 @@
+/* Para más información sobre este archivo de configuración: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* Para más información sobre el compilador de Angular: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
